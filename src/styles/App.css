@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color:aliceblue;
 }
 
 .App-logo {
@@ -14,9 +15,9 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 5em;
   display: flex;
+  background-color:seagreen;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -31,11 +32,9 @@
 .Body {
   display: flex;
   flex-direction: row;
-  width: 400px;
-  height: 100%;
 }
 
 .leaflet-container {
-  height: 600px;
-  width: 100%;
+  height: 45em;
+  width: 45em;
 }

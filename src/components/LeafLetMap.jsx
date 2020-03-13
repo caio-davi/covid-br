@@ -3,16 +3,29 @@ import { Map, TileLayer, Circle } from "react-leaflet";
 import L from "leaflet";
 
 const LeafletMap = props => {
+  const getPosition = uId => {
+    for (let i in props.states) {
+      if (props.states[i].uid === uId) {
+        return [props.states[i]["lat"], props.states[i]["lon"]];
+      }
+    }
+  };
 
   const Circles = () => {
     let markers = [];
-    for (let i in props.states) {
-      const position = [props.states[i]["lat"], props.states[i]["lon"]];
-      markers.push(
-        <div>
-          <Circle radius={35} center={position} color={'red'} />
-        </div>
-      );
+    for (let i in props.cases) {
+      const position = getPosition(parseInt(props.cases[i].uid));
+      if (props.cases[i].suspects != undefined) {
+        markers.push(
+          <div>
+            <Circle
+              radius={props.cases[i].suspects * 500}
+              center={position}
+              color={"red"}
+            />
+          </div>
+        );
+      }
     }
     return markers;
   };

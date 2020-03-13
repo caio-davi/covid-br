@@ -1,9 +1,11 @@
 const states = [
+{ 'uid' : 11, 'name':  'Rondonia', 'lat': -8.76116, 'lon': -63.90043},
 { 'uid' : 12, 'name':  'Acre', 'lat': -9.975377, 'lon': -67.8248977 },
 { 'uid' : 13, 'name':  'Amazonaas', 'lat': -3.1190275, 'lon': -60.02173140000002},
 { 'uid' : 15, 'name':  'Para', 'lat': -1.4557549, 'lon': -48.49017989999999},
+{ 'uid' : 17, 'name':  'Tocantins', 'lat': -10.184444, 'lon':  -48.333611},
 { 'uid' : 21, 'name':  'Maranhao', 'lat': -2.53911, 'lon': -44.282905},
-{ 'uid' : 22, 'name':  'Rondonia', 'lat': -8.76116, 'lon':  	-63.90043},
+{ 'uid' : 22, 'name':  'Piaui', 'lat':  	-5.044685, 'lon':  	-42.766233},
 { 'uid' : 23, 'name':  'Ceara', 'lat': -3.7318616, 'lon': -38.5266704},
 { 'uid' : 24, 'name':  'Rio Grande do Norte', 'lat': -5.7792569, 'lon': -35.20091600000001},
 { 'uid' : 25, 'name':  'Paraiba', 'lat': -7.119496, 'lon': -34.845012},
