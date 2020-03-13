@@ -30,11 +30,13 @@
 }
 
 .Body {
+  margin:1em;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 .leaflet-container {
-  height: 45em;
-  width: 45em;
+  height: 50em;
+  width: 50em;
 }

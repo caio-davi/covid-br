@@ -22,7 +22,7 @@ const LeafletMap = props => {
             id={"circle_" + i}
               radius={props.cases[i][props.dataType] * 500}
               center={position}
-              color={"red"}
+              color={props.color}
             />
           </div>
         );
