@@ -29,7 +29,7 @@ const firstDataOptions = {
   },
   deaths: {
     name: "Óbitos",
-    color: "black",
+    color: "grey",
     enabled: false
   }
 };
@@ -38,10 +38,15 @@ function App() {
   const [day, setDay] = React.useState(data.length - 1);
   const [dataOptions, setDataOptions] = React.useState(firstDataOptions);
 
-  const toogleDataOption = type => {
-    let newoptions = dataOptions; 
-    newoptions[type].enabled = !dataOptions[type].enabled;
-    setDataOptions({...dataOptions, ...newoptions})
+  const sumStatus = (status) => {
+    let count = 0;
+    for(let i in data[day].values){
+      const state = data[day].values[i];
+      if(state[status] != undefined){
+        count = count + state[status];
+      }
+    }
+    return count;
   }
 
   const handleSlider = props => {
@@ -69,7 +74,7 @@ function App() {
           handleSlider={handleSlider}
           day={data[day].date}
           dataOptions={dataOptions}
-          toogleDataOption={toogleDataOption}
+          sumStatus={sumStatus}
         />
         <div className="leaflet-container">
           <LeafletMap
