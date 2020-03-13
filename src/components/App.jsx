@@ -11,7 +11,7 @@ import { blue } from "ansi-colors";
 const data = window.database.brazil;
 const Handle = Slider.Handle;
 const center = [-15, -52];
-const firstDataOptions = {
+const dataOptions = {
   suspects: {
     name: "Casos Suspeitos",
     color: "blue",
@@ -36,7 +36,7 @@ const firstDataOptions = {
 
 function App() {
   const [day, setDay] = React.useState(data.length - 1);
-  const [dataOptions, setDataOptions] = React.useState(firstDataOptions);
+  const [dataType, setDataType] = React.useState('cases');
 
   const sumStatus = (status) => {
     let count = 0;
@@ -47,6 +47,10 @@ function App() {
       }
     }
     return count;
+  }
+
+  const handleDropdown = (obj) => {
+    setDataType(obj.value);
   }
 
   const handleSlider = props => {
@@ -75,11 +79,13 @@ function App() {
           day={data[day].date}
           dataOptions={dataOptions}
           sumStatus={sumStatus}
+          handleDropdown={handleDropdown}
         />
         <div className="leaflet-container">
           <LeafletMap
             center={center}
             states={states}
+            dataType={dataType}
             cases={data[day].values}
           />
         </div>

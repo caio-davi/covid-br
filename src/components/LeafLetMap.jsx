@@ -15,12 +15,12 @@ const LeafletMap = props => {
     let markers = [];
     for (let i in props.cases) {
       const position = getPosition(parseInt(props.cases[i].uid));
-      if (props.cases[i].suspects != undefined) {
+      if (props.cases[i][props.dataType] != undefined) {
         markers.push(
           <div>
             <Circle
             id={"circle_" + i}
-              radius={props.cases[i].suspects * 500}
+              radius={props.cases[i][props.dataType] * 500}
               center={position}
               color={"red"}
             />
