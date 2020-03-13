@@ -19,6 +19,7 @@ const LeafletMap = props => {
         markers.push(
           <div>
             <Circle
+            id={"circle_" + i}
               radius={props.cases[i].suspects * 500}
               center={position}
               color={"red"}
