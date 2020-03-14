@@ -6,7 +6,7 @@ const sumStatus = (data, status) => {
   let count = 0;
   for (let i in data.values) {
     const state = data.values[i];
-    if (state[status] != undefined) {
+    if (state[status] !== undefined) {
       count = count + state[status];
     }
   }
@@ -39,7 +39,6 @@ const datasets = (data, dataOptions) => {
       backgroundColor: dataOptions[key].backgroundColor
     });
   }
-  console.log(datasets);
   return datasets;
 };
 

@@ -3,22 +3,15 @@ import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 import "../styles/Options.css";
 import Dropdown from "react-dropdown";
-
 import 'react-dropdown/style.css';
-
-const statusStyle = status => {
-  return {
-    backgroundColor: status.color
-  };
-};
 
 const Status = props => {
   const statusCollection = [];
   for (let key in props.dataOptions) {
     const newStatus = props.dataOptions[key];
     statusCollection.push(
-      <div className={`status-body ${key}`}>
-        <div className={`status-header ${key}`}>{newStatus.name}</div>
+      <div key={'status-body_'+key} className={`status-body ${key}`}>
+        <div key={'status-header_'+key} className={`status-header ${key}`}>{newStatus.name}</div>
         {props.sumStatus(key)}
       </div>
     );

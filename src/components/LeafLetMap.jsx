@@ -1,6 +1,5 @@
 import React from "react";
 import { Map, TileLayer, Circle } from "react-leaflet";
-import L from "leaflet";
 
 const LeafletMap = props => {
   const getPosition = uId => {
@@ -15,16 +14,14 @@ const LeafletMap = props => {
     let markers = [];
     for (let i in props.cases) {
       const position = getPosition(parseInt(props.cases[i].uid));
-      if (props.cases[i][props.dataType] != undefined) {
+      if (props.cases[i][props.dataType] !== undefined) {
         markers.push(
-          <div>
             <Circle
-            id={"circle_" + i}
+              key={"circle_" + i}
               radius={props.cases[i][props.dataType] * 500}
               center={position}
               color={props.color}
             />
-          </div>
         );
       }
     }
