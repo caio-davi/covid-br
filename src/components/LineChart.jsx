@@ -58,11 +58,25 @@ const LineChart = props => {
           options={{ responsive: true }}
         />
       </div>
-      <div style={{margin:'5em'}}>
-          Fonte: Ministério da Saúde do Brasil.
+      <div style={{marginTop:"5em"}}>
+        [Fonte]: Ministério da Saúde - Governo Brasileiro
+      </div>
+      <div
+        style={{ color: "blue", cursor: "pointer"}}
+        onClick={() => window.open("http://plataforma.saude.gov.br/novocoronavirus/", '_blank')}
+      >
+        Notificação de casos de doença pelo coronavírus 2019 (COVID-19)
+      </div>
+      <div
+        style={{ color: "blue", cursor: "pointer", marginTop:"1em"}}
+        onClick={() => window.open("https://github.com/caio-davi/covid-br", '_blank')}
+      >
+        Github
       </div>
     </div>
   );
 };
 
 export default LineChart;
+
+
