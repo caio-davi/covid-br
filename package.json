@@ -1,12 +1,14 @@
 {
   "name": "covid-br",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "homepage": "https://caio-davi.github.io/covid-br",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "chart.js": "^2.9.3",
+    "gh-pages": "^2.2.0",
     "leaflet": "^1.6.0",
     "rc-slider": "^9.2.3",
     "react": "^16.13.0",
@@ -17,6 +19,8 @@
     "react-scripts": "3.4.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
