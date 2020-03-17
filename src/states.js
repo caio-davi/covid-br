@@ -1,7 +1,7 @@
 const states = [
 { 'uid' : 11, 'name':  'Rondonia', 'lat': -8.76116, 'lon': -63.90043},
 { 'uid' : 12, 'name':  'Acre', 'lat': -9.975377, 'lon': -67.8248977 },
-{ 'uid' : 13, 'name':  'Amazonaas', 'lat': -3.1190275, 'lon': -60.02173140000002},
+{ 'uid' : 13, 'name':  'Amazonas', 'lat': -3.1190275, 'lon': -60.02173140000002},
 { 'uid' : 14, 'name':  'Roraima', 'lat': 2.819444, 'lon': -60.671389},
 { 'uid' : 15, 'name':  'Para', 'lat': -1.4557549, 'lon': -48.49017989999999},
 { 'uid' : 16, 'name':  'Amapa', 'lat': 0.033889, 'lon': -51.066389},

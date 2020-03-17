@@ -41,6 +41,22 @@ const dataOptions = {
   }
 };
 
+const getName = uId => {
+  for (let i in states) {
+    if (states[i].uid === uId) {
+      return states[i].name;
+    }
+  }
+};
+
+const getPosition = uId => {
+  for (let i in states) {
+    if (states[i].uid === uId) {
+      return [states[i]["lat"], states[i]["lon"]];
+    }
+  }
+};
+
 function App() {
   const [day, setDay] = React.useState(0);
   const [dataType, setDataType] = React.useState("cases");
@@ -60,6 +76,7 @@ function App() {
       .then(response => {
         const str = response.substring(13, response.length);
         const newData = JSON.parse(str).brazil;
+        newData.splice(0, 25);
         setData(newData);
         setDay(newData.length - 1);
       });
@@ -112,17 +129,23 @@ function App() {
             dataType={dataType}
             handleDropdown={handleDropdown}
           />
-          <div className="leaflet-container">
+          <div>
             <LeafletMap
               center={center}
-              states={states}
+              getName={getName}
+              getPosition={getPosition}
               dataType={dataType}
               color={dataOptions[dataType].borderColor}
               dataOptions={dataOptions}
               cases={data[day].values}
             />
           </div>
-          <LineChart data={data} dataOptions={dataOptions} />
+          <LineChart
+            data={data}
+            getName={getName}
+            dataOptions={dataOptions}
+            statesInfo={data[day].values}
+          />
         </div>
       </div>
     );

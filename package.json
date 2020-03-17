@@ -10,6 +10,7 @@
     "chart.js": "^2.9.3",
     "gh-pages": "^2.2.0",
     "leaflet": "^1.6.0",
+    "mdbreact": "^4.25.4",
     "rc-slider": "^9.2.3",
     "react": "^16.13.0",
     "react-chartjs-2": "^2.9.0",

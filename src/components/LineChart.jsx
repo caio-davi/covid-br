@@ -1,6 +1,7 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
 import "../styles/Linechart.css";
+import { MDBContainer, MDBDataTable } from "mdbreact";
 
 const sumStatus = (data, status) => {
   let count = 0;
@@ -49,34 +50,69 @@ const chartData = (data, dataOptions) => {
   };
 };
 
+const tableContents = (statesInfo, dataOptions, getName) => {
+  let rows = [];
+  for (let state in statesInfo) {
+    let row = {};
+    row.name = getName(statesInfo[state].uid);
+    for (let type in dataOptions) {
+      if (statesInfo[state][type] !== undefined) {
+        row[type] = statesInfo[state][type];
+      } else {
+        row[type] = 0;
+      }
+    }
+    rows.push(row);
+  }
+  return rows;
+};
+
+const tableHeaders = dataOptions => {
+  let headers = [];
+  headers.push({
+    label: "Estado",
+    field: "name",
+    sort: "asc"
+  });
+  for (let i in dataOptions) {
+    let header = dataOptions[i];
+    headers.push({
+      label: header.name,
+      field: i,
+      sort: "asc"
+    });
+  }
+  return headers;
+};
+
 const LineChart = props => {
   return (
-    <div>
-      <div className="container">
+    <MDBContainer>
+      <div className="chart">
         <Line
           data={chartData(props.data, props.dataOptions)}
           options={{ responsive: true }}
         />
       </div>
-      <div style={{marginTop:"5em"}}>
-        [Fonte]: Ministério da Saúde - Governo Brasileiro
+      <div className="list">
+        <MDBDataTable
+          scrollY
+          maxHeight="200px"
+          striped
+          bordered
+          small
+          data={{
+            columns: tableHeaders(props.dataOptions),
+            rows: tableContents(
+              props.statesInfo,
+              props.dataOptions,
+              props.getName
+            )
+          }}
+        />
       </div>
-      <div
-        style={{ color: "blue", cursor: "pointer"}}
-        onClick={() => window.open("http://plataforma.saude.gov.br/novocoronavirus/", '_blank')}
-      >
-        Notificação de casos de doença pelo coronavírus 2019 (COVID-19)
-      </div>
-      <div
-        style={{ color: "blue", cursor: "pointer", marginTop:"1em"}}
-        onClick={() => window.open("https://github.com/caio-davi/covid-br", '_blank')}
-      >
-        Github
-      </div>
-    </div>
+    </MDBContainer>
   );
 };
 
 export default LineChart;
-
-

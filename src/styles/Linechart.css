@@ -1,3 +1,22 @@
-.container {
-  width: 50em;
+.chart {
+  max-width: 50em;
+  margin-bottom: 2em;
+}
+
+.list {
+  max-width: 50em;
+  max-height: 25em;
+  margin: 2em;
+  border-color: black;
+}
+
+.list-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: inherit;
+  overflow: auto;
+}
+
+.list-row.even {
+  background-color: lightblue;
 }
