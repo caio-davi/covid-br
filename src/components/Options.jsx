@@ -42,10 +42,10 @@ const Options = props => {
         />
       </div>
       <Status {...props} />
-      Show on map:
+      Exibir no Mapa:
       <Dropdown options={showOnMapOptions(props.dataOptions)}
       onChange={props.handleDropdown}
-        placeholder="Casos Confirmados" />
+        placeholder={props.dataOptions[props.dataType].name} />
     </div>
   );
 };

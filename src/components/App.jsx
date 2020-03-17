@@ -109,6 +109,7 @@ function App() {
             day={data[day].date}
             dataOptions={dataOptions}
             sumStatus={sumStatus}
+            dataType={dataType}
             handleDropdown={handleDropdown}
           />
           <div className="leaflet-container">
