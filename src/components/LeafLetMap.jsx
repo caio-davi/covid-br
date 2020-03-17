@@ -1,11 +1,19 @@
 import React from "react";
-import { Map, TileLayer, Circle } from "react-leaflet";
+import { Map, TileLayer, Circle, Popup } from "react-leaflet";
 
 const LeafletMap = props => {
   const getPosition = uId => {
     for (let i in props.states) {
       if (props.states[i].uid === uId) {
         return [props.states[i]["lat"], props.states[i]["lon"]];
+      }
+    }
+  };
+
+  const getName = uId => {
+    for (let i in props.states) {
+      if (props.states[i].uid === uId) {
+        return props.states[i].name;
       }
     }
   };
@@ -21,7 +29,11 @@ const LeafletMap = props => {
               radius={props.cases[i][props.dataType] * 500}
               center={position}
               color={props.color}
-            />
+            >
+              <Popup>
+              {props.dataOptions[props.dataType].name} em {getName(props.cases[i].uid)}: <br /> {props.cases[i][props.dataType]}.
+          </Popup>
+            </Circle>
         );
       }
     }

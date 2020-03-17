@@ -48,7 +48,7 @@ function App() {
 
   React.useEffect(() => {
     fetch(
-      "https://cors-anywhere.herokuapp.com/http://plataforma.saude.gov.br/novocoronavirus/resources/scripts/database.js",
+      "https://corona-br.herokuapp.com/http://plataforma.saude.gov.br/novocoronavirus/resources/scripts/database.js",
       {
         method: "POST",
         headers: new Headers({
@@ -117,6 +117,7 @@ function App() {
               states={states}
               dataType={dataType}
               color={dataOptions[dataType].borderColor}
+              dataOptions={dataOptions}
               cases={data[day].values}
             />
           </div>
